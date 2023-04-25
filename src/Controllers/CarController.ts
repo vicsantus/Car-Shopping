@@ -3,7 +3,7 @@ import ICar from '../Interfaces/ICar';
 import CarService from '../Services/CarService';
 // import PaymentStatus from '../utils/PaymentStatus';
 
-class TransferController {
+class CarController {
   private req: Request;
   private res: Response;
   private next: NextFunction;
@@ -69,4 +69,4 @@ class TransferController {
   // }
 }
 
-export default TransferController;
+export default CarController;

@@ -2,7 +2,7 @@ import {
   HydratedDocument,
   Model,
   Schema,
-  UpdateQuery,
+  // UpdateQuery,
   isValidObjectId,
   model,
   models,
@@ -32,15 +32,15 @@ abstract class AbstractODM<T> {
     return this.model.find({});
   }
 
-  public async update(_id: string, obj: Partial<T>): Promise<T | null> {
-    if (!isValidObjectId(_id)) throw Error('Invalid Mongo id');
+  // public async update(_id: string, obj: Partial<T>): Promise<T | null> {
+  //   if (!isValidObjectId(_id)) throw Error('Invalid Mongo id');
 
-    return this.model.findByIdAndUpdate(
-      { _id },
-      { ...obj } as UpdateQuery<T>,
-      { new: true },
-    );
-  }
+  //   return this.model.findByIdAndUpdate(
+  //     { _id },
+  //     { ...obj } as UpdateQuery<T>,
+  //     { new: true },
+  //   );
+  // }
 }
 
 export default AbstractODM;
