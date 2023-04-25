@@ -41,6 +41,15 @@ class CarService {
     return carDomained;
   }
 
+  public async update(id: string, newCar: ICar) {
+    const carODM = new CarsODM();
+    if (await carODM.findById(id)) {
+      const resultCar = await carODM.update(id, newCar);
+      return this.createCarDomain(resultCar);
+    }
+    throw new Error('Car not found');
+  }
+
   // public async undoTransfer(id: string, payment: ICar) {
   //   // const keyService = new KeyService();
   //   if (await keyService.getByValue(payment.key)) {
