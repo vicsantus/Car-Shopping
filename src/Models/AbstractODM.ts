@@ -1,4 +1,5 @@
 import {
+  HydratedDocument,
   Model,
   Schema,
   UpdateQuery,
@@ -20,6 +21,15 @@ abstract class AbstractODM<T> {
 
   public async create(obj: T): Promise<T> {
     return this.model.create({ ...obj });
+  }
+
+  public async findById(_id: string): Promise<HydratedDocument<T> | null> {
+    if (!isValidObjectId(_id)) throw Error('Invalid mongo id');
+    return this.model.findById({ _id });
+  }
+
+  public async findAll(): Promise<HydratedDocument<T>[]> {
+    return this.model.find({});
   }
 
   public async update(_id: string, obj: Partial<T>): Promise<T | null> {

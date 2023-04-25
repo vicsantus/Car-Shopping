@@ -25,15 +25,21 @@ class CarService {
     return this.createCarDomain(newCar);
   }
 
-  // public async transfer(payment: ICar) {
-  //   // const keyService = new KeyService();
-  //   if (await keyService.getByValue(payment.key)) {
-  //     const paymentODM = new CarsODM();
-  //     const newPayment = await paymentODM.create(payment);
-  //     return this.createPaymentDomain(newPayment);
-  //   }
-  //   throw new Error('Key not found');
-  // }
+  public async findById(id: string) {
+    const carODM = new CarsODM();
+    if (await carODM.findById(id)) {
+      const resultCar = await carODM.findById(id);
+      return this.createCarDomain(resultCar);
+    }
+    throw new Error('Car not found');
+  }
+
+  public async findAll() {
+    const carODM = new CarsODM();
+    const resultCar = await carODM.findAll();
+    const carDomained = resultCar.map((car) => this.createCarDomain(car));
+    return carDomained;
+  }
 
   // public async undoTransfer(id: string, payment: ICar) {
   //   // const keyService = new KeyService();

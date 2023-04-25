@@ -35,6 +35,25 @@ class TransferController {
     }
   }
 
+  public async getById() {
+    const { id } = this.req.params;
+    try {
+      const key = await this.service.findById(id);
+      return this.res.status(200).json(key);
+    } catch (e) {
+      this.next(e);
+    }
+  }
+
+  public async getAllCars() {
+    try {
+      const key = await this.service.findAll();
+      return this.res.status(200).json(key);
+    } catch (e) {
+      this.next(e);
+    }
+  }
+
   // public async reversalRequest() {
   //   const payment: ICar = {
   //     ...this.req.body,
