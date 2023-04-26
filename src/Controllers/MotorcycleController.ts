@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorcycleService from '../Services/MotorcycleService';
-// import PaymentStatus from '../utils/PaymentStatus';
 
 class MotorcycleController {
   private req: Request;
@@ -73,20 +72,6 @@ class MotorcycleController {
       this.next(e);
     }
   }
-
-  // public async reversalRequest() {
-  //   const payment: IMoto = {
-  //     ...this.req.body,
-  //     status: PaymentStatus.reversed,
-  //   };
-  //   const { id } = this.req.params;
-  //   try {
-  //     await this.service.undoTransfer(id, payment);
-  //     return this.res.status(204).json({});
-  //   } catch (error) {
-  //     this.next(error);
-  //   }
-  // }
 }
 
 export default MotorcycleController;

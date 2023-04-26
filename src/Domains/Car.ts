@@ -1,5 +1,3 @@
-// import PaymentStatus from '../../utils/PaymentStatus';
-
 import ICar from '../Interfaces/ICar';
 import Vehicle from './Vehicle';
 

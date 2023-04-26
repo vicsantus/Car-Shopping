@@ -1,5 +1,3 @@
-// import PaymentStatus from '../../utils/PaymentStatus';
-
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import Vehicle from './Vehicle';
 

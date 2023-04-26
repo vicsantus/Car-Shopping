@@ -46,19 +46,4 @@ routes.get(
   (req, res, next) => new MotorcycleController(req, res, next).getById(),
 );
 
-// routes.patch(
-//   '/transfer/:id',
-//   (req, res, next) => new TransferController(req, res, next).reversalRequest(),
-// );
-
-// routes.post(
-//   '/key/register',
-//   (req, res, next) => new KeyController(req, res, next).create(),
-// );
-
-// routes.get(
-//   '/key/:value',
-//   (req, res, next) => new KeyController(req, res, next).getByValue(),
-// );
-
 export default routes;

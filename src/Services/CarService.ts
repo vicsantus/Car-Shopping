@@ -49,15 +49,6 @@ class CarService {
     }
     throw new Error('Car not found');
   }
-
-  // public async undoTransfer(id: string, payment: ICar) {
-  //   // const keyService = new KeyService();
-  //   if (await keyService.getByValue(payment.key)) {
-  //     const paymentODM = new CarsODM();
-  //     return paymentODM.update(id, payment);
-  //   }
-  //   throw new Error('Key not found');
-  // }
 }
 
 export default CarService;

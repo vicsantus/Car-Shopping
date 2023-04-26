@@ -1,5 +1,3 @@
-// import PaymentStatus from '../../utils/PaymentStatus';
-
 import IVehicle from '../Interfaces/IVehicle';
 
 abstract class Vehicle {

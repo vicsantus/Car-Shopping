@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import ICar from '../Interfaces/ICar';
 import CarService from '../Services/CarService';
-// import PaymentStatus from '../utils/PaymentStatus';
 
 class CarController {
   private req: Request;
@@ -73,20 +72,6 @@ class CarController {
       this.next(e);
     }
   }
-
-  // public async reversalRequest() {
-  //   const payment: ICar = {
-  //     ...this.req.body,
-  //     status: PaymentStatus.reversed,
-  //   };
-  //   const { id } = this.req.params;
-  //   try {
-  //     await this.service.undoTransfer(id, payment);
-  //     return this.res.status(204).json({});
-  //   } catch (error) {
-  //     this.next(error);
-  //   }
-  // }
 }
 
 export default CarController;
