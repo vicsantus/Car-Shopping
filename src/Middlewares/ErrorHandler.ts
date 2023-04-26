@@ -7,7 +7,8 @@ class ErrorHandler {
     res: Response,
     next: NextFunction,
   ) {
-    if (error.message === 'Car not found') {
+    if (error.message === 'Car not found'
+    || error.message === 'Motorcycle not found') {
       res.status(404).json({ message: error.message });
       next();
     }
