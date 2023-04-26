@@ -105,25 +105,25 @@ describe('Deveria validar a rota cars', function () {
   });
 
   it('Não substituindo um car com id inválida', async function () {
-    const idMotoInvalida = '64484c4f3a1ed52ac6a5270';
+    const idCarInvalida = '64484c4f3a1ed52ac6a5270';
     sinon.stub(Model, 'findByIdAndUpdate').resolves({});
 
     try {
       const service = new CarService();
-      await service.update(idMotoInvalida, carInput);
+      await service.update(idCarInvalida, carInput);
     } catch (error) {
       expect((error as Error).message).to.be.equal(INVALID_MONGO_ID);
     }
   });
 
   it('Não substituindo um car com id que não existe no banco de dados', async function () {
-    const idMoto = '64484c4f3a1ed52ac6a52704';
+    const idCar = '64484c4f3a1ed52ac6a52704';
     sinon.stub(Model, 'findById').resolves(null);
     sinon.stub(Model, 'findByIdAndUpdate').resolves(null);
 
     try {
       const service = new CarService();
-      await service.update(idMoto, carInput);
+      await service.update(idCar, carInput);
     } catch (error) {
       expect((error as Error).message).to.be.equal(CAR_NOT_FOUND);
     }
